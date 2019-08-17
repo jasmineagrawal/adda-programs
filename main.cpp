@@ -1,22 +1,28 @@
+#include <stdio.h>
 #include <iostream>
-using namespace std;
 
+using namespace std;
+int floorsqrt(int x)
+{
+	if(x==0 || x==1)
+	
+		return x;
+	
+	int i=1,result=1;
+	while(result<=x)
+	{
+		i++;
+		result=i*i;
+	}
+	return i-1;
+}
 int main(int argc, char **argv)
 {
-	int n, arr[50],i,max;
-	cout<<"enter the value of n";
-	cin>>n;
-	cout<<"enter"<<n<<"numbers";
-	for( i=0;i<n;i++)
-	{
-		cin>>arr[i];
-	}
-	max=arr[0];
-	for(i=0;i<n;i++)
-	{
-		if(arr[i]>max)
-			max=arr[i];
-	}
-	cout<<"maximum value"<< max;
+	int x;
+	cout<<"enter the number to find sqrt";
+	cin>>x;
+	cout<<floorsqrt(x)<<endl;
 	return 0;
 }
+	
+
