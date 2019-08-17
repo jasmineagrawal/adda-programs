@@ -1,28 +1,39 @@
-#include <stdio.h>
+#include <fstream>
 #include <iostream>
 
 using namespace std;
-int floorsqrt(int x)
-{
-	if(x==0 || x==1)
-	
-		return x;
-	
-	int i=1,result=1;
-	while(result<=x)
-	{
-		i++;
-		result=i*i;
-	}
-	return i-1;
-}
+
 int main(int argc, char **argv)
 {
-	int x;
-	cout<<"enter the number to find sqrt";
-	cin>>x;
-	cout<<floorsqrt(x)<<endl;
-	return 0;
+	int t,n,k,a[20],flag=0;
+	ifstream inFile;
+	inFile.open("input.txt");
+	if(inFile)
+	{
+		cout<<"unable to open file";
+	}
+	inFile >> t;
+	cout<<"no. of test cases:"<<t<<endl;
+	for(int i=0;i<t;i++)
+	{
+		flag=0;
+		inFile>>n;
+		cout<<"the no. of elements: "<<n<<endl;
+		inFile>>k;
+		cout<<"the key"<<k<<endl;
+		cout<<"the lements: "<<endl;
+		for(i=0;i<=n;i++)
+		{
+			inFile >>a[i];
+			cout<<a[i]<<" , ";
+			if(a[i]==k)
+				flag=1;
+		}
+		if(flag==1)
+			cout<<endl<<1<<"key found";
+			else
+				cout<<endl<<-1<<"key not found"<<endl;
+	}
+inFile.close();
+return 0;
 }
-	
-
